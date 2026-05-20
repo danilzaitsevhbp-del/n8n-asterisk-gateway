@@ -1,0 +1,29 @@
+# Runtime secrets / local config
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Runtime/generated data
+sessions/
+recordings/
+audio/
+*.wav
+*.mp3
+*.sln
+*.gsm
+*.log
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
