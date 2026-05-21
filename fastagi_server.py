@@ -103,8 +103,9 @@ def stream_file(agi: AgiSession, playback_file: str) -> None:
 
 
 def record_file(agi: AgiSession, record_base: Path, max_seconds: int, silence_seconds: int, beep: bool) -> str:
-    record_base.parent.mkdir(parents=True, exist_ok=True)
-    timeout_ms = max_seconds * 1000
+record_base.parent.mkdir(parents=True, exist_ok=True)
+record_base.parent.chmod(0o777)
+timeout_ms = max_seconds * 1000
     beep_part = ' BEEP' if beep else ''
     agi.command(f'RECORD FILE {record_base} wav "" {timeout_ms} 0{beep_part} s={silence_seconds}')
     return str(record_base) + '.wav'
